@@ -1,48 +1,76 @@
-// Assume the following situations.
-    // (TEST 1)
-    // First Train of the Day is 3:00 AM
-    // Assume Train comes every 3 minutes.
-    // Assume the current time is 3:16 AM....
-    // What time would the next train be...? (Use your brain first)
-    // It would be 3:18 -- 2 minutes away
-    // (TEST 2)
-    // First Train of the Day is 3:00 AM
-    // Assume Train comes every 7 minutes.
-    // Assume the current time is 3:16 AM....
-    // What time would the next train be...? (Use your brain first)
-    // It would be 3:21 -- 5 minutes away
-    // ==========================================================
-    // Solved Mathematically
-    // Test case 1:
-    // 16 - 00 = 16
-    // 16 % 3 = 1 (Modulus is the remainder)
-    // 3 - 1 = 2 minutes away
-    // 2 + 3:16 = 3:18
-    // Solved Mathematically
-    // Test case 2:
-    // 16 - 00 = 16
-    // 16 % 7 = 2 (Modulus is the remainder)
-    // 7 - 2 = 5 minutes away
-    // 5 + 3:16 = 3:21
-    // Assumptions
-    var tFrequency = 3;
-    // Time is 3:30 AM
-    var firstTime = "03:30";
-    // First Time (pushed back 1 year to make sure it comes before current time)
-    var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
-    console.log(firstTimeConverted);
-    // Current Time
-    var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-    // Difference between the times
-    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-    console.log("DIFFERENCE IN TIME: " + diffTime);
-    // Time apart (remainder)
-    var tRemainder = diffTime % tFrequency;
-    console.log(tRemainder);
-    // Minute Until Train
-    var tMinutesTillTrain = tFrequency - tRemainder;
-    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-    // Next Train
-    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAUTqq713utywkZZk4hgmk4ihyl8rwrRnw",
+    authDomain: "train-scheduler-4b8ab.firebaseapp.com",
+    databaseURL: "https://train-scheduler-4b8ab.firebaseio.com",
+    projectId: "train-scheduler-4b8ab",
+    storageBucket: "",
+    messagingSenderId: "440969081330"
+};
+firebase.initializeApp(config);
+
+var database = firebase.database()
+
+
+$("#submitBTN").on("click", function (event) {
+    event.preventDefault();
+    //input fields
+    var trainName = $("#trainName").val().trim()
+    var trainDest = $("#trainDest").val().trim()
+    var trainTime = $("#trainTime").val().trim()
+    var trainFreq = $("#trainFreq").val().trim()
+    console.log(trainName)
+    console.log(trainDest)
+    console.log(trainTime)
+    console.log(trainFreq)
+
+    //add input to database
+    database.ref().push({
+        trainName: trainName,
+        trainDest: trainDest,
+        trainTime: trainTime,
+        trainFreq: trainFreq
+    })
+
+    //clear input
+    $("#trainName, #trainDest, #trainTime, #trainFreq").val("")
+})
+
+database.ref().on("child_added", function (childSnapshot, prevChildKey) {
+        var newTrain = childSnapshot.val().trainName
+        var newDest = childSnapshot.val().trainDest
+        var newTime = childSnapshot.val().trainTime
+        var newFreq = childSnapshot.val().trainFreq
+
+        var startTimeConv = moment(newTrain, "hh:mm").subtract(1, "years")
+
+        var currentTime = moment()
+
+        var newTime = moment().diff(moment(startTimeConv), "minutes")
+
+        var timeRem = newTime % newFreq
+
+        var tMinutesTillTrain = newFreq = timeRem
+
+        var nextTrain = moment().add(tMinutesTillTrain, "minutes")
+
+        var getTrain = moment(nextTrain).format("hh:mm")
+
+        // $("#train, #destination, #frequency, #arrival, #distance").append(
+        //     "<p>"+newTrain+"</p>",
+        //     "<p>"+newDest+"</p>",
+        //     "<p>"+newTime+"</p>",
+        //     "<p>"+newFreq+"</p>",
+        //     "<p>"+nextTrain+"</p>",
+        //     "<p>"+getTrain+"</p>"
+            
+            
+        
+            $('#train').append("<p>"+newTrain+ "</p>")
+            $('#destination').append("<p>"+newDest+ "</p>")
+            $('#frequency').append("<p>"+newTime+ "</p>")
+            $('#arrival').append("<p>"+nextTrain+ "</p>")
+            $('#distance').append("<p>"+getTrain+ "</p>")
+        })
+
