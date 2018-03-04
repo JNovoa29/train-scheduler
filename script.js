@@ -51,26 +51,16 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
         var timeRem = newTime % newFreq
 
-        var tMinutesTillTrain = newFreq = timeRem
+        var tMinutesTillTrain = newFreq + timeRem
 
         var nextTrain = moment().add(tMinutesTillTrain, "minutes")
 
         var getTrain = moment(nextTrain).format("hh:mm")
-
-        // $("#train, #destination, #frequency, #arrival, #distance").append(
-        //     "<p>"+newTrain+"</p>",
-        //     "<p>"+newDest+"</p>",
-        //     "<p>"+newTime+"</p>",
-        //     "<p>"+newFreq+"</p>",
-        //     "<p>"+nextTrain+"</p>",
-        //     "<p>"+getTrain+"</p>"
             
-            
-        
             $('#train').append("<p>"+newTrain+ "</p>")
             $('#destination').append("<p>"+newDest+ "</p>")
-            $('#frequency').append("<p>"+newTime+ "</p>")
-            $('#arrival').append("<p>"+nextTrain+ "</p>")
-            $('#distance').append("<p>"+getTrain+ "</p>")
+            $('#frequency').append("<p>"+timeRem+ "</p>")
+            $('#arrival').append("<p>"+getTrain+ "</p>")
+            $('#distance').append("<p>"+nextTrain+ "</p>")
         })
 
