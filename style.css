@@ -1,0 +1,29 @@
+.jumbotron {
+    background-image: url("../train-scheduler/images/train-header.jpg");
+    background-size: 100%;
+    padding-bottom: 9%;
+}
+
+#main-title {
+    font-family: 'Monoton', cursive;
+    color: rgb(192, 48, 103);
+    font-size: 64px;
+}
+
+#sub-title {
+    font-family: 'Rokkitt', serif;
+    color: white;
+    font-size: 28px;
+    font-style: italic;
+    position: relative;
+    right: -30px; 
+}
+
+.panel-main {
+    text-align: center;
+}
+
+.container {
+    font-family: 'Rokkitt', serif;
+    font-size: 20px;
+}

@@ -7,13 +7,88 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Playfair+Display+SC" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Train Scheduler</title>
 </head>
 
 <body>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <h1 id="main-title">Loco<i>motion</i></h1>
+                <h3 id="sub-title">Finding a railway to your next adventure...</h3>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+    <div class="row">
+        <div class="panel panel-main" id="input-body">
+            <div class="panel-title" id="train-schedule">
+                <h3>Current Train Schedule</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="trainPanel">
+        <div class="cold-md-1"></div>
+        <div class="col-md-2">
+            <h5>Train Name</h5>
+        </div>
+        <div class="col-md-2">
+            <h5>Destination</h5>
+        </div>
+        <div class="col-md-2">
+            <h5>Frequency (min)</h5>
+        </div>
+        <div class="col-md-2">
+            <h5>Next Arrival</h5>
+        </div>
+        <div class="col-md-2">
+            <h5>Minutes Away</h5>
+        </div>
+        <div class="cold-md-1"></div>
+    </div>
+
+    <div class="row" id="trainArray"></div>
+    <div class="row">
+        <div class="col-md">
+            <div class="panel-title" id="search-form">
+                <h3>Add Train</h3>
+            </div>
+            <div class="panel panel-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="search">Train Name: </label>
+                        <br>
+                        <input type="text" class="form-line" id="trainName">
+                    </div>
+                    <div class="form-group">
+                        <label for="search">Destination: </label>
+                        <br>
+                        <input type="text" class="form-line" id="trainDest">
+                    </div>
+                    <div class="form-group">
+                        <label for="search">First Train Time (HH:mm - military time): </label>
+                        <br>
+                        <input type="text" class="form-line" id="trainTime">
+                    </div>
+                    <div class="form-group">
+                        <label for="search">Frequency: </label>
+                        <br>
+                        <input type="number" class="form-line" id="trainFreq">
+                    </div>
+                    <button type="submit" class="btn btn-default" id="searchBTN">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
 </body>
 
 </html>
