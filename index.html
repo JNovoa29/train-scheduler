@@ -7,49 +7,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Monoton|Playfair+Display+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Monoton" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Train Scheduler</title>
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="jumbotron">
-                <h1 id="main-title">Loco<i>motion</i></h1>
-                <h3 id="sub-title">Finding a railway to your next adventure...</h3>
-            </div>
-        </div>
-    </div>
     
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h1 id="main-title">Loco<i>motion</i></h1>
+                    <p id="sub-title">Finding a railway to your next adventure...</p>
+                </div>
+            </div>
+        </div>
     <div class="row">
-        <div class="panel panel-main" id="input-body">
             <div class="panel-title" id="train-schedule">
                 <h3>Current Train Schedule</h3>
             </div>
-        </div>
     </div>
     <div class="row" id="trainPanel">
         <div class="cold-md-1"></div>
         <div class="col-md-2" id="train">
-            <h5>Train Name</h5>
+            <p>Train Name</p>
         </div>
         <div class="col-md-2" id="destination">
-            <h5>Destination</h5>
+            <p>Destination</p>
         </div>
         <div class="col-md-2" id="frequency">
-            <h5>Freq</h5>
+            <p>Frequency</p>
         </div>
         <div class="col-md-2" id="arrival">
-            <h5>Next Arrival</h5>
+            <p>Next Arrival</p>
         </div>
         <div class="col-md-2" id="distance">
-            <h5>Minutes Away</h5>
+            <p>Minutes Away</p>
         </div>
         <div class="cold-md-1"></div>
     </div>
-
     <div class="row" id="trainArray"></div>
     <div class="row">
         <div class="col-md">

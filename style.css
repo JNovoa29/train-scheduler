@@ -1,29 +1,60 @@
 .jumbotron {
-    background-image: url("../train-scheduler/images/train-header.jpg");
+    background-image: url("../train-scheduler/images/traingif.gif");
+    background-repeat: no-repeat;
     background-size: 100%;
-    padding-bottom: 9%;
+    padding: 18%;
 }
 
 #main-title {
     font-family: 'Monoton', cursive;
-    color: rgb(192, 48, 103);
-    font-size: 64px;
+    color: rgb(216, 89, 30);
+    font-size: 70px;
+    text-align: center;
 }
 
 #sub-title {
-    font-family: 'Rokkitt', serif;
+    font-family: 'IM Fell English SC', serif;    
     color: white;
-    font-size: 28px;
+    font-size: 30px;
     font-style: italic;
     position: relative;
     right: -30px; 
+    text-align: center;
+    text-shadow: 2px 2px 4px rgb(216, 89, 30);
 }
 
 .panel-main {
     text-align: center;
 }
 
+.panel-title {
+    text-align: left;
+    color: rgb(216, 89, 30);
+    text-shadow: 2px 2px 4px rgb(107, 102, 100);
+
+}
+
 .container {
-    font-family: 'Rokkitt', serif;
+    font-family: 'IM Fell English SC', serif;
     font-size: 20px;
+    color: rgb(73, 72, 72);
+
+}
+
+#submitBTN {
+    color: white;
+    background-color: rgb(216, 89, 30);
+    width: 12%;
+}
+
+#submitBTN:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.form-line{
+    border-radius: 4px; 
+}
+
+form {
+    padding-bottom: 4%;
 }
